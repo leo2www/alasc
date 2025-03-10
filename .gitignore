@@ -3,3 +3,8 @@ target
 .ensime
 .idea
 *~
+
+# 忽略log local 文件
+*.log
+**/*.local.*
+*
