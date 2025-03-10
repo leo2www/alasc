@@ -4,10 +4,11 @@ val scala210Version = "2.10.7"
 val scala211Version = "2.11.12"
 val scala212Version = "2.12.6"
 
-val attributesVersion = "0.30"
+val attributesVersion = "0.30-SNAPSHOT"
 val disciplineVersion = "0.8"
 val fastParseVersion = "1.0.0"
-val metalVersion = "0.16.0.0"
+// val metalVersion = "0.16.0.0"
+val metalVersion = "0.16.0.1-SNAPSHOT"
 val scalaCheckVersion = "1.13.5"
 val scalaTestVersion = "3.0.5"
 val spireVersion = "0.16.0"
@@ -57,7 +58,10 @@ lazy val commonSettings = Seq(
   resolvers ++= Seq(
     "bintray/denisrosset/maven" at "https://dl.bintray.com/denisrosset/maven",
     Resolver.sonatypeRepo("snapshots"),
-    Resolver.sonatypeRepo("releases")
+    Resolver.sonatypeRepo("releases"),
+    // 本地构建器
+    Resolver.mavenLocal,
+    Resolver.file("local-ivy", file(Path.userHome.absolutePath + "/.ivy2/local"))(Resolver.ivyStylePatterns)
   ),
   libraryDependencies ++= Seq(
     "net.alasc" %% "attributes" % attributesVersion,
